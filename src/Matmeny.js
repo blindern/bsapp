@@ -20,7 +20,7 @@ module.exports = React.createClass({
 
   getMatmenyUrl() {
     function getDateString(date) {
-      return date.getFullYear() + '-' + (date.getMonth() < 10 ? '0' : '') + date.getMonth() + '-' + (date.getDate() < 10 ? '0' : '') + date.getDate();
+      return date.getFullYear() + '-' + ((date.getMonth() + 1) < 10 ? '0' : '') + (date.getMonth() + 1) + '-' + (date.getDate() < 10 ? '0' : '') + date.getDate();
     }
 
     let days = 4
@@ -69,15 +69,17 @@ module.exports = React.createClass({
         <Text style={styles.title}>
           Matmeny
         </Text>
-        {this.state.days.map(this.renderDay)}
+        <View style={styles.daylist}>
+          {this.state.days.map(this.renderDay)}
+        </View>
       </View>
     )
   },
 
   renderDay(day) {
     return (
-      <View style={styles.day}>
-        <Text>
+      <View style={styles.daycontainer}>
+        <Text style={styles.daydate}>
           {day.day}
         </Text>
         <View style={styles.dishes}>
@@ -97,15 +99,22 @@ var styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
   },
   title: {
-    fontSize: 20,
+    fontSize: 30,
   },
   nodata: {},
-  day: {
-    marginTop: 10,
+  daylist: {
+
+  },
+  daycontainer: {
+    marginTop: 15,
+  },
+  daydate: {
+    fontSize: 18,
   },
   dishes: {},
-  dish: {}
+  dish: {
+    fontSize: 15,
+  }
 })

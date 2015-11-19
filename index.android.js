@@ -23,6 +23,11 @@ var bsapp = React.createClass({
   render: function () {
     return (
       <View style={styles.container}>
+        <View style={styles.heading}>
+          <Text style={styles.headingtext}>
+            BS-app
+          </Text>
+        </View>
         <Matmeny />
       </View>
     )
@@ -36,10 +41,14 @@ var styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  instructions: {
+  heading: {
+    marginBottom: 5,
+
+  },
+  headingtext: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
+    fontSize: 40,
   },
 })
 

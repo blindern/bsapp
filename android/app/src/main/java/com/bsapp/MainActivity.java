@@ -1,4 +1,4 @@
-package com.bsapp;
+package no.foreningenbs.bsapp;
 
 import android.app.Activity;
 import android.os.Bundle;
